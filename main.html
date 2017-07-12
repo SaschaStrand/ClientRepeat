@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet"> 
+    <style type="text/css">
+      html {
+	font-family: 'Vollkorn', serif;
+      }
+      .header {
+	text-align:center;
+	line-height: 100px;
+	width: 500px;
+	height: 100px;
+	margin-left:auto;
+	margin-right:auto;
+      }
+      .container {
+	position:relative;
+	width:700px;
+	margin:10px;
+	background-color: #4682B4;
+      }
+      .nav {
+	position:absolute;
+	left:0px;
+	top:100px;
+	width:200px;
+	min-height:500px;
+	background: #808080;
+	text-align:center;
+      }
+      .content {
+	position:absolute;
+	top:100px;
+	left:200px;
+	width:500px;
+	height:500px;
+	background: #6B8E23;
+      }
+      #LCont {
+//	position:absolute;
+//	top:10px;
+	margin:20px;
+        background:purple;
+	width:150px;
+	display:inline-block;
+      }
+      #RCont {
+//	position:absolute;
+//	top:10px;
+	margin:20px;
+	background:black;
+	width:150px;
+	display:inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+	<h1>ClientRepeat</h1>
+      </div>
+      <div class="nav">
+	<h2>Navigation </h2>
+	<button type="button">Clients</button><br>
+	<button type="button">Income Reports</button><br>
+	<button type="button">Scheduling Reports</button>
+      </div>
+      <div class="content">
+	<h2 style="text-align:center">Newly Complete Appointment</h2>
+	<span >Date:</span> 
+	<span ><input id="date" type="date"></span><br>
+	<span >Client Name:</span>  
+	<span ><input type="text"></span><br>
+	Duration:  <select name="durations">
+	  <option value="<30 min">&lt30min</option>
+	  <option value="30 min">30 min</option>
+	  <option value="60 min">60 min</option>
+	  <option value="90 min">90 min</option>
+	  <option value=">90 min">&gt90 min</option>
+	</select><br>
+	Reschedule:  Yes <input type="radio" name="reschedule" value="yes">
+	No <input type="radio" name="reschedule" value="no"><br>
+	Tip:  $<input type="number" name="tip" min="0" value="0.00" step=".01"><br>
+	<button type="button">Submit</button>
+      </div>
+    </div>
+  </body>
+</html>
