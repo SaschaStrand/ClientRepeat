@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="page-header">
+	<h1>New Appointment</h1>
+</div>
+
+
+<form class="form-horizontal">
+	<!-- Date -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Date:</label>
+		<div class="col-sm-6">
+					<div class='input-group date' id='date'>
+							<input type='text' class="form-control" />
+							<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+							</span>
+					</div>
+		</div>
+	</div>
+	<!-- Client Name -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Client Name:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="date" type="date">
+		</div>
+	</div>
+	<!-- Duration -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label" for="durations">Duration:</label>
+		<div class="col-sm-6">
+			<select class="form-control" id="durations">
+				<option value="<30 min">&lt 30 min</option>
+					<option value="30 min">30 min</option>
+					<option value="60 min">60 min</option>
+					<option value="90 min">90 min</option>
+					<option value=">90 min">&gt 90 min</option>
+				</select>
+			</div>
+		</div>
+		<!-- Reschedule -->
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Reschedule:</label>
+			<div class="col-sm-1">
+				<label class="control-label">Yes</label>
+				<input type="radio" class="form-check-input" name="reschedule" value="yes">
+			</div>
+			<div class="col-sm-1">
+				<label class="control-label">No</label>
+				<input type="radio" class="form-check-input" name="reschedule" value="no">
+			</div>
+		</div>
+	<!-- Tip -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Tip:</label>
+		<div class="col-sm-6">
+			<div class="input-group">
+				<div class="input-group-addon">$</div>
+				<input type="text" class="form-control" id="exampleInputAmount" placeholder="0.00">
+			</div>
+		</div>
+	</div>
+	<!-- Submit -->
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<button class="btn btn-primary">submit</button>
+		</div>
+	</div>
+</form> <!-- end of form -->
+
+<script>
+jQuery('#date').datepicker({
+	format: "MM dd, yyyy",
+	autoclose: true,
+	todayHighlight: true
+});
+</script>
+
+{% endblock %}

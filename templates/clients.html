@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <h1>Clients</h1>
+  <ul class="list-group">
+    {% for client in clients %}
+    <li class="list-group-item">{{client.first_name}} {{client.last_name}}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
