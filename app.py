@@ -15,15 +15,20 @@ def index():
 def newAppt():
   return render_template('newAppt.html')
 
-#Clients 
+#Clients
 @app.route('/clients')
 def clients():
   return render_template('clients.html', clients = Clients)
 
-#Reports
-@app.route('/reports')
-def reports():
-  return render_template('reports.html')
+#Income Reports
+@app.route('/incomeReports')
+def incomeReports():
+  return render_template('incomeReports.html')
+
+#Scheduling Reports
+@app.route('/schedulingReports')
+def schedulingReports():
+  return render_template('schedulingReports.html')
 
 if __name__ == '__main__':
   app.run(debug=True)
