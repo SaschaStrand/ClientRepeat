@@ -24,15 +24,17 @@ The front-end is complete. I am currently implementing the back end as we learn 
 ## To Do
 
 For single-user version of application:
-* Be able to create an appointment associated with a client
 * Be able to view an analytic result over database
-* Make clients page a table not a list
 
 For multi-user version of application
 * Be able to log a new user
 * Create border requiring login around content
 * Be able to log a user in
 * Partition database for different clients
+
+## Done
+* Add check for foreign key validation in input
+* Be able to create an appointment associated with a client
 
 ## Limitations
 

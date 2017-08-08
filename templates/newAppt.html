@@ -5,14 +5,13 @@
 	<h1>New Appointment</h1>
 </div>
 
-
-<form class="form-horizontal">
+<form action = "{{ url_for('newApptProcess') }}" method = "post" class="form-horizontal">
 	<!-- Date -->
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Date:</label>
 		<div class="col-sm-6">
 					<div class='input-group date' id='date'>
-							<input type='text' class="form-control" />
+							<input type='text' class="form-control" name = "date">
 							<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
 							</span>
@@ -23,19 +22,19 @@
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Client Name:</label>
 		<div class="col-sm-6">
-			<input class="form-control" id="date" type="date">
+			<input class="form-control" id="date" type="text" name = "full_name">
 		</div>
 	</div>
 	<!-- Duration -->
 	<div class="form-group">
 		<label class="col-sm-2 control-label" for="durations">Duration:</label>
 		<div class="col-sm-6">
-			<select class="form-control" id="durations">
-				<option value="<30 min">&lt 30 min</option>
-					<option value="30 min">30 min</option>
-					<option value="60 min">60 min</option>
-					<option value="90 min">90 min</option>
-					<option value=">90 min">&gt 90 min</option>
+			<select class="form-control" id="durations" name="duration">
+				<option name = duration value="lt_30_min">&lt 30 min</option>
+					<option name = duration value="30_min">30 min</option>
+					<option name = duration value="60_min">60 min</option>
+					<option name = duration value="90_min">90 min</option>
+					<option name = duration value="gt_90_min">&gt 90 min</option>
 				</select>
 			</div>
 		</div>
@@ -44,11 +43,11 @@
 			<label class="col-sm-2 control-label">Reschedule:</label>
 			<div class="col-sm-1">
 				<label class="control-label">Yes</label>
-				<input type="radio" class="form-check-input" name="reschedule" value="yes">
+				<input type="radio" class="form-check-input" name="reschedule" value="TRUE">
 			</div>
 			<div class="col-sm-1">
 				<label class="control-label">No</label>
-				<input type="radio" class="form-check-input" name="reschedule" value="no">
+				<input type="radio" class="form-check-input" name="reschedule" value="FALSE">
 			</div>
 		</div>
 	<!-- Tip -->
@@ -57,7 +56,7 @@
 		<div class="col-sm-6">
 			<div class="input-group">
 				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" id="exampleInputAmount" placeholder="0.00">
+				<input type="text" class="form-control" name = "tip" placeholder="0.00">
 			</div>
 		</div>
 	</div>
@@ -71,7 +70,7 @@
 
 <script>
 jQuery('#date').datepicker({
-	format: "MM dd, yyyy",
+	format: "yyyy-mm-dd",
 	autoclose: true,
 	todayHighlight: true
 });
