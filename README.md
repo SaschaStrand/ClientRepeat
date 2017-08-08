@@ -15,7 +15,7 @@ Note: ClientRepeat includes only the most minimal security features (effectively
 
 1.  Use the form in the New Appointments tab to track each appointment completed.
 
-1.  Use the Reports tab to find a sorted list of clients by average rate of gratuity and average total gratuity as well as the average rate of re-scheduling among all clients and a sorted list of clients by rate of re-scheduling.
+1.  Use the Reports tab to find a sorted list of clients by average total gratuity as well as the average rate of re-scheduling among all clients and a sorted list of clients by rate of re-scheduling.
 
 ## Status
 
@@ -24,17 +24,24 @@ The front-end is complete. I am currently implementing the back end as we learn 
 ## To Do
 
 For single-user version of application:
-* Be able to view an analytic result over database
+* Add analytics: sorted list of clients by average tip
+* Add analytics: average rate of re-scheduling
+* Add analytics: sorted list of clients by rate of re-scheduling
+* Add pre-population of client name in new appt input
 
 For multi-user version of application
-* Be able to log a new user
 * Create border requiring login around content
 * Be able to log a user in
-* Partition database for different clients
+* Be able to log a user out
+* Modify database to distinguish different users
+
+For demonstration
+* Create some user data
 
 ## Done
 * Add check for foreign key validation in input
 * Be able to create an appointment associated with a client
+* Be able to log a new user
 
 ## Limitations
 

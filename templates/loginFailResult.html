@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="page-header">
+  <h2>{{ msg }}</h2>
+</div>
+<form action="/login">
+  <input type="submit" value="Login" class="btn btn-primary"/>
+</form>
+</div>
+{% endblock %}

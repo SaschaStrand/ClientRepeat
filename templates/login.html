@@ -1,0 +1,31 @@
+{% extends 'layoutMinimal.html' %}
+
+{% block body %}
+<div class="page-header">
+	<h1>Login</h1>
+</div>
+
+<form action = "{{ url_for('loginProcess')}}" method = "post" class="form-horizontal">
+  <!-- Username -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Username:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="username" type="text" name="username">
+		</div>
+	</div>
+  <!-- Password -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Password:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="password" type="password" name="password" onkeyup='passwordConfirm();'>
+		</div>
+	</div>
+  <!-- Submit -->
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<button class="btn btn-primary">Login</button>
+		</div>
+	</div>
+</form> <!-- end of form -->
+
+{% endblock %}

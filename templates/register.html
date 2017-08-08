@@ -1,0 +1,52 @@
+{% extends 'layoutMinimal.html' %}
+
+{% block body %}
+<div class="page-header">
+	<h1>Registration</h1>
+</div>
+
+<form action = "{{ url_for('registerProcess')}}" method = "post" class="form-horizontal">
+  <!-- Username -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Username:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="username" type="text" name="username">
+		</div>
+	</div>
+  <!-- Password -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Password:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="password" type="password" name="password" onkeyup='passwordConfirm();'>
+		</div>
+	</div>
+	<!-- Password Conf. -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Confirm Password:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="password2" type="password" name="password2" onkeyup='passwordConfirm();'>
+			<div id=message></div>
+		</div>
+	</div>
+  <!-- Submit -->
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<button class="btn btn-primary">submit</button>
+		</div>
+	</div>
+</form> <!-- end of form -->
+
+<script>
+var passwordConfirm = function() {
+  if (document.getElementById('password').value ==
+    document.getElementById('password2').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
+
+{% endblock %}
