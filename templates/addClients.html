@@ -2,78 +2,44 @@
 
 {% block body %}
 <div class="page-header">
-	<h1>New Appointment</h1>
+	<h1>Add Client</h1>
 </div>
 
-<form action = "{{ url_for('newApptProcess') }}" method = "post" class="form-horizontal">
-	<!-- Date -->
+<form action = "{{ url_for('addClientProcess')}}" method = "post" class="form-horizontal">
+	<!-- First Name -->
 	<div class="form-group">
-		<label class="col-sm-2 control-label">Date:</label>
+		<label class="col-sm-2 control-label">First Name:</label>
 		<div class="col-sm-6">
-					<div class='input-group date' id='date'>
-							<input type='text' class="form-control" name = "date">
-							<span class="input-group-addon">
-									<span class="glyphicon glyphicon-calendar"></span>
-							</span>
-					</div>
+			<input class="form-control" id="first_name" type="text" name="first_name">
 		</div>
 	</div>
-	<!-- Client Name -->
+  <!-- Last Name -->
 	<div class="form-group">
-		<label class="col-sm-2 control-label">Client Name:</label>
+		<label class="col-sm-2 control-label">Last Name:</label>
 		<div class="col-sm-6">
-			<input class="form-control" id="date" type="text" name = "full_name">
+			<input class="form-control" id="last_name" type="text" name="last_name">
 		</div>
 	</div>
-	<!-- Duration -->
+  <!-- Phone -->
 	<div class="form-group">
-		<label class="col-sm-2 control-label" for="durations">Duration:</label>
+		<label class="col-sm-2 control-label">Phone:</label>
 		<div class="col-sm-6">
-			<select class="form-control" id="durations" name="duration">
-				<option name = duration value="lt_30_min">&lt 30 min</option>
-					<option name = duration value="30_min">30 min</option>
-					<option name = duration value="60_min">60 min</option>
-					<option name = duration value="90_min">90 min</option>
-					<option name = duration value="gt_90_min">&gt 90 min</option>
-				</select>
-			</div>
-		</div>
-		<!-- Reschedule -->
-		<div class="form-group">
-			<label class="col-sm-2 control-label">Reschedule:</label>
-			<div class="col-sm-1">
-				<label class="control-label">Yes</label>
-				<input type="radio" class="form-check-input" name="reschedule" value="TRUE">
-			</div>
-			<div class="col-sm-1">
-				<label class="control-label">No</label>
-				<input type="radio" class="form-check-input" name="reschedule" value="FALSE">
-			</div>
-		</div>
-	<!-- Tip -->
-	<div class="form-group">
-		<label class="col-sm-2 control-label">Tip:</label>
-		<div class="col-sm-6">
-			<div class="input-group">
-				<div class="input-group-addon">$</div>
-				<input type="text" class="form-control" name = "tip" placeholder="0.00">
-			</div>
+			<input class="form-control" id="phone" type="text" name="phone">
 		</div>
 	</div>
-	<!-- Submit -->
+  <!-- Email -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Email:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="email" type="text" name="email">
+		</div>
+	</div>
+  <!-- Submit -->
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-8">
 			<button class="btn btn-primary">submit</button>
 		</div>
 	</div>
 </form> <!-- end of form -->
-
-<script>
-jQuery('#date').datepicker({
-	format: "yyyy-mm-dd",
-	autoclose: true,
-	todayHighlight: true
-});
-</script>
 
 {% endblock %}

@@ -28,12 +28,7 @@ For single-user version of application:
 * Add analytics: average rate of re-scheduling
 * Add analytics: sorted list of clients by rate of re-scheduling
 * Add pre-population of client name in new appt input
-
-For multi-user version of application
-* Create border requiring login around content
-* Be able to log a user in
-* Be able to log a user out
-* Modify database to distinguish different users
+* Remove debugging print statements
 
 For demonstration
 * Create some user data
@@ -42,6 +37,11 @@ For demonstration
 * Add check for foreign key validation in input
 * Be able to create an appointment associated with a client
 * Be able to log a new user
+* Correct error message from adding an appointment for a client who doesn't exist
+* Create border requiring login around content
+* Be able to log a user in
+* Be able to log a user out
+* Modify database to distinguish different users
 
 ## Limitations
 

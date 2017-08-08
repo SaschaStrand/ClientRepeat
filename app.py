@@ -2,8 +2,9 @@ from flask import Flask, render_template, g, request, flash, redirect, url_for
 import MySQLdb
 from werkzeug.security import generate_password_hash, check_password_hash
 
-# Configure database
 app = Flask(__name__)
+
+# Configure database
 db = MySQLdb.connect("localhost", "root", "YayClientRepeat!", "ClientRepeat")
 loggedIn = False
 activeUser = ""
@@ -21,9 +22,6 @@ def register():
 #Register Process
 @app.route('/registerProcess', methods=['POST'])
 def registerProcess():
-    global loggedIn
-    global activeUser
-    if loggedIn:
         cur = db.cursor()
         msg = 'there was a serious error'
         try:
@@ -52,9 +50,6 @@ def registerProcess():
             msg = "Something has gone wrong inserting your new user credentials into the database."
             return render_template("registerResult.html", msg=msg)
             cur.close()
-    else:
-        msg = "This page is available only to registerd users."
-        return render_template('loginFailResult.html', msg=msg)
 
 #Login
 @app.route('/login')
@@ -66,7 +61,6 @@ def login():
 def loginProcess():
     global loggedIn
     global activeUser
-    #if form.validate():
     cur = db.cursor()
     msg = 'Something has gone wrong processing your credentials.'
     try:
@@ -112,44 +106,51 @@ def newApptProcess():
     if loggedIn:
       cur = db.cursor()
       msg = 'there was a serious error'
-      try:
-          try:
-              full_name = request.form['full_name']
-              cur.execute("SELECT * FROM CLIENTS WHERE full_name = %s", [full_name])
-              foo = cur.fetchall()
-              if not foo[0]:
-                  raise Exception
-          except:
-              msg = 'Please make sure the client you entered is in your client list'
-          appt_date = request.form['date']
-          duration = request.form['duration']
-          reschedule = request.form['reschedule']
-          tip = request.form['tip']
-          cur.execute("INSERT INTO appts (full_name, appt_date, duration, reschedule, tip) VALUES (%s,%s,%s,%s,%s);", (full_name, appt_date, duration, reschedule, tip))
-          print "about to commit"
-          db.commit()
-          msg = "Record successfully added"
-      except:
-          db.rollback()
-          msg = "error in insert operation"
-      finally:
-          return render_template("newApptResult.html", msg=msg)
-          cur.close()
+    try:
+        full_name = request.form['full_name']
+        cur.execute("SELECT * FROM CLIENTS WHERE full_name = %s AND user = %s", [full_name, activeUser]) #Review
+        foo = cur.fetchall()
+        if not foo[0]:
+            raise Exception
+    except:
+        msg = 'Please make sure the client you entered is in your client list.'
+        return render_template("newApptResult.html", msg=msg)
+        cur.close()
+
+    try:
+        appt_date = request.form['date']
+        duration = request.form['duration']
+        reschedule = request.form['reschedule']
+        tip = request.form['tip']
+        cur.execute("INSERT INTO appts (full_name, appt_date, duration, reschedule, tip, user) VALUES (%s,%s,%s,%s,%s,%s);", (full_name, appt_date, duration, reschedule, tip, activeUser))
+        print "about to commit"
+        db.commit()
+        msg = "Record successfully added"
+    except:
+        db.rollback()
+        msg = "error in insert operation"
+        return render_template("newApptResult.html", msg=msg)
+        cur.close()
 
 #Clients
 @app.route('/clients')
 def clients():
     global loggedIn
     global activeUser
+    print "*******"
+    print loggedIn
+    print activeUser
     if loggedIn:
+        print("heya")
         cur = db.cursor()
-        cur.execute("SELECT count(*) FROM clients")
-        returnQuant = cur.fetchone()
-        if returnQuant[0] > 0:
-            cur.execute("SELECT * FROM clients")
-            clients = cur.fetchall()
+        cur.execute("SELECT * FROM clients WHERE user = %s", [activeUser])
+        clients = cur.fetchall()
+        if clients:
+            # cur.execute("SELECT * FROM clients WHERE user = %s", [activeUser])
+            # clients = cur.fetchall()
             return render_template('clients.html', clients = clients)
         else:
+            print("down here")
             return render_template('addClients.html')
             cur.close()
     else:
@@ -179,7 +180,7 @@ def addClientProcess():
             full_name = request.form['first_name'] + " " + request.form['last_name']
             phone = request.form['phone']
             email = request.form['email']
-            cur.execute("INSERT INTO clients (full_name, phone, email) VALUES (%s,%s,%s);", (full_name, phone, email))
+            cur.execute("INSERT INTO clients (full_name, phone, email, user) VALUES (%s,%s,%s,%s);", (full_name, phone, email, activeUser))
             db.commit()
             msg = "Record successfully added"
         except:

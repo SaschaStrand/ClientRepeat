@@ -1,0 +1,26 @@
+CREATE TABLE CLIENTS
+(
+  full_name VARCHAR(150),
+  phone     VARCHAR(150),
+  email     VARCHAR(150),
+  user      VARCHAR(150),
+  PRIMARY KEY (full_name)
+);
+
+CREATE TABLE APPTS
+(
+  full_name    VARCHAR(150),
+  appt_date    DATE,
+  duration     VARCHAR(36),
+  reschedule   VARCHAR(6),
+  tip          DECIMAL(6,2),
+  user         VARCHAR(150),
+  FOREIGN KEY (full_name) REFERENCES clients(full_name) ON DELETE CASCADE
+);
+
+CREATE TABLE USERS
+(
+  username VARCHAR(150),
+  password VARCHAR(300),
+  PRIMARY KEY (username)
+);
