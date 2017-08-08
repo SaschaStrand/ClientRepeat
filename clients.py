@@ -12,11 +12,11 @@ def Clients():
 	'address_2'      :'',
 	'city'           :'East Hartford',
 	'state'          :'CT',
-	'zip'            :'06108',
+	'zip_code'            :'06108',
 	'phone'          :'203-766-6599',
 	'email'          :'MichelleOMalone@dayrep.com',
 	'favorite_color' :'blue',
-	'tropical_zodiak':'Cancer'
+	'zodiak':'Cancer'
 	},
       {
 	'uuid'           :2,
@@ -26,11 +26,11 @@ def Clients():
 	'address_2'      :'',
 	'city'           :'Santa Rosa',
 	'state'          :'CA',
-	'zip'            :'95407',
+	'zip_code'            :'95407',
 	'phone'          :'510-691-6535',
 	'email'          :'PaulAAllred@rhyta.com',
 	'favorite_color' :'blue',
-	'tropical_zodiak':'Aquarius'
+	'zodiak':'Aquarius'
 	},
       {
 	'uuid'           :3,
@@ -40,11 +40,11 @@ def Clients():
 	'address_2'      :'',
 	'city'           :'Virginia Beach',
 	'state'          :'VA',
-	'zip'            :'23455',
+	'zip_code'            :'23455',
 	'phone'          :'757-460-6801',
 	'email'          :'DavidTjensen@jourrapide.com',
 	'favorite_color' :'blue',
-	'tropical_zodiak':'Aquarius'
+	'zodiak':'Aquarius'
 	}
       ]
   return articles

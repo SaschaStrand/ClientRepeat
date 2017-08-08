@@ -7,7 +7,7 @@ For a contractor whose income is based on commission, the over-all rate of re-sc
 
 ## How To Use
 
-Note: ClientRepeat includes only the most minimal security features, so in cases where client confidentiality is important, please run it only locally.
+Note: ClientRepeat includes only the most minimal security features (effectively none), so in cases where client confidentiality is important, please run it only locally.
 
 1.  Create a username and password and log in
 
@@ -15,21 +15,34 @@ Note: ClientRepeat includes only the most minimal security features, so in cases
 
 1.  Use the form in the New Appointments tab to track each appointment completed.
 
-1.  Use the Income Reports tab to find a sorted list of clients by average rate of gratuity and average total gratuity.
-
-1.  Use the Scheduling Reports tab to find your average rate of re-scheduling as well as a sorted list of clients by rate of re-scheduling.
+1.  Use the Reports tab to find a sorted list of clients by average rate of gratuity and average total gratuity as well as the average rate of re-scheduling among all clients and a sorted list of clients by rate of re-scheduling.
 
 ## Status
 
-The front-end is complete. I am currently implementing the back end as we learn about databases in my web development class. 
+The front-end is complete. I am currently implementing the back end as we learn about databases in my web development class.
+
+## To Do
+
+For single-user version of application:
+* Be able to create an appointment associated with a client
+* Be able to view an analytic result over database
+* Make clients page a table not a list
+
+For multi-user version of application
+* Be able to log a new user
+* Create border requiring login around content
+* Be able to log a user in
+* Partition database for different clients
 
 ## Limitations
 
 * Client information must be entered manually
 * Reporting data is available only through the front-end
 * Reporting data is available only in tabular form (Tufte would be sad)
+* Almost no input-validation in forms
+* There is no way to edit a client's information.
+* Clients must have unique names
 
 ## License
 
-This work is made available under the MIT license. Please
-see the file `COPYING` in this distribution for license terms.
+This work is made available under the MIT license.

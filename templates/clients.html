@@ -1,11 +1,16 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<div class='btn-toolbar pull-right'>
+  <form action="/addClient">
+    <input type="submit" value="Add Another Client" class="btn btn-primary"/>
+  </form>
+</div>
+<h1>Clients</h1>
 
-  <h1>Clients</h1>
-  <ul class="list-group">
-    {% for client in clients %}
-    <li class="list-group-item">{{client.first_name}} {{client.last_name}}</li>
-    {% endfor %}
-  </ul>
+<ul class="list-group">
+  {% for client in clients %}
+  <li class="list-group-item">{{ client[0] }}</li>
+  {% endfor %}
+</ul>
 {% endblock %}

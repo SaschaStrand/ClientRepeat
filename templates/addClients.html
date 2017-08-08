@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="page-header">
+	<h1>Add Client</h1>
+</div>
+
+<form action = "{{ url_for('addClientProcess')}}" method = "post" class="form-horizontal">
+	<!-- First Name -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">First Name:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="first_name" type="text" name="first_name">
+		</div>
+	</div>
+  <!-- Last Name -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Last Name:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="last_name" type="text" name="last_name">
+		</div>
+	</div>
+  <!-- Phone -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Phone:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="phone" type="text" name="phone">
+		</div>
+	</div>
+  <!-- Email -->
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Email:</label>
+		<div class="col-sm-6">
+			<input class="form-control" id="email" type="text" name="email">
+		</div>
+	</div>
+  <!-- Submit -->
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<button class="btn btn-primary">submit</button>
+		</div>
+	</div>
+</form> <!-- end of form -->
+
+{% endblock %}
