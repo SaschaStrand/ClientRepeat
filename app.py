@@ -107,8 +107,9 @@ def newApptProcess():
       cur = db.cursor()
       msg = 'there was a serious error'
     try:
+        # Tests that the client is in the database
         full_name = request.form['full_name']
-        cur.execute("SELECT * FROM CLIENTS WHERE full_name = %s AND user = %s", [full_name, activeUser]) #Review
+        cur.execute("SELECT * FROM CLIENTS WHERE full_name = %s AND user = %s", [full_name, activeUser])
         foo = cur.fetchall()
         if not foo[0]:
             raise Exception
@@ -126,6 +127,8 @@ def newApptProcess():
         print "about to commit"
         db.commit()
         msg = "Record successfully added"
+        return render_template("newApptResult.html", msg=msg)
+        cur.close()
     except:
         db.rollback()
         msg = "error in insert operation"
@@ -146,8 +149,6 @@ def clients():
         cur.execute("SELECT * FROM clients WHERE user = %s", [activeUser])
         clients = cur.fetchall()
         if clients:
-            # cur.execute("SELECT * FROM clients WHERE user = %s", [activeUser])
-            # clients = cur.fetchall()
             return render_template('clients.html', clients = clients)
         else:
             print("down here")
@@ -196,18 +197,38 @@ def reports():
     global loggedIn
     global activeUser
     if loggedIn:
-        return render_template('reports.html')
-    else:
-        msg = "This page is available only to registerd users."
-        return render_template('loginFailResult.html', msg=msg)
+        cur = db.cursor()
+        msg = "There was a signficant problem."
+        try:
+            cur.execute("SELECT count(*) FROM CLIENTS WHERE user = %s", [activeUser])
+            quantClients = cur.fetchone()
+            cur.execute("SELECT count(*) FROM APPTS WHERE user = %s", [activeUser])
+            quantAppts = cur.fetchone()
+            cur.execute("SELECT count(*) FROM APPTS WHERE reschedule = 1 AND user = %s", [activeUser])
+            quantReschedule = cur.fetchone()
+            cur.execute("SELECT full_name, AVG(tip) FROM APPTS WHERE user = %s GROUP BY full_name ORDER BY AVG(tip) DESC", [activeUser])
+            clientsByTip = cur.fetchall()
 
-#Scheduling Reports
-@app.route('/schedulingReports')
-def schedulingReports():
-    global loggedIn
-    global activeUser
-    if loggedIn:
-        return render_template('schedulingReports.html')
+            rateOfReschedule = quantReschedule[0] / float(quantAppts[0]) * 100
+            rateOfReschedule = str("{:10.1f}".format(rateOfReschedule)) + "%"
+            print quantReschedule[0]
+            print quantAppts[0]
+            print rateOfReschedule
+            msg = "Reports"
+
+            print type(list(clientsByTip))
+            clientsByTipOut = []
+            for client in list(clientsByTip):
+                foo = "$" + str("{0:.2f}".format(client[1]))
+                clientsByTipOut.append((client[0], foo))
+                # print foo
+            print "*********************"
+            for client in clientsByTipOut:
+                print client
+        except:
+            msg = "There was a database problem :-/"
+        return render_template("reports.html", msg = msg, quantClients = quantClients, quantAppts = quantAppts, rateOfReschedule = rateOfReschedule, clientsByTip = clientsByTipOut)
+
     else:
         msg = "This page is available only to registerd users."
         return render_template('loginFailResult.html', msg=msg)

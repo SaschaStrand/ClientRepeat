@@ -50,7 +50,7 @@ For demonstration
 * Reporting data is available only in tabular form (Tufte would be sad)
 * Almost no input-validation in forms
 * There is no way to edit a client's information.
-* Clients must have unique names
+* Clients must have unique names (even across users)
 
 ## License
 
