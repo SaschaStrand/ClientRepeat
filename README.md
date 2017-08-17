@@ -5,6 +5,19 @@ ClientRepeat is a web-based application allows an independent contractor to trac
 
 For a contractor whose income is based on commission, the over-all rate of re-scheduling among clients can provide valuable data for negotiating a higher rate of commission. And for anyone who maintains long-term client relationships that include regular gratuity, data on this aspect of compensation can allow a contractor to prioritize scheduling and services to their most valuable clients.
 
+## Video Demonstration
+
+Video demonstrations of ClientRepeat can be found here:
+
+New user:
+https://youtu.be/i9pQlqs8Shc
+
+User with established clients:
+https://youtu.be/yYw9iGMiHXo
+
+As well as in their raw forms at:
+https://drive.google.com/drive/folders/0B-S6GlZ4FikrTzRkV2wwTXBkbDA?usp=sharing
+
 ## How To Use
 
 Note: ClientRepeat includes only the most minimal security features (effectively none), so in cases where client confidentiality is important, please run it only locally.
@@ -19,29 +32,7 @@ Note: ClientRepeat includes only the most minimal security features (effectively
 
 ## Status
 
-The front-end is complete. I am currently implementing the back end as we learn about databases in my web development class.
-
-## To Do
-
-For single-user version of application:
-* Add analytics: sorted list of clients by average tip
-* Add analytics: average rate of re-scheduling
-* Add analytics: sorted list of clients by rate of re-scheduling
-* Add pre-population of client name in new appt input
-* Remove debugging print statements
-
-For demonstration
-* Create some user data
-
-## Done
-* Add check for foreign key validation in input
-* Be able to create an appointment associated with a client
-* Be able to log a new user
-* Correct error message from adding an appointment for a client who doesn't exist
-* Create border requiring login around content
-* Be able to log a user in
-* Be able to log a user out
-* Modify database to distinguish different users
+The front and back-end are complete. Under manual testing, the application works well with the exception of the limitations listed below.
 
 ## Limitations
 
