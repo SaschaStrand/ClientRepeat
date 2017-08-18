@@ -9,14 +9,14 @@ For a contractor whose income is based on commission, the over-all rate of re-sc
 
 Video demonstrations of ClientRepeat can be found here:
 
-New user:
-https://youtu.be/i9pQlqs8Shc
+[New user]
+(https://youtu.be/i9pQlqs8Shc)
 
-User with established clients:
-https://youtu.be/yYw9iGMiHXo
+[User with established clients]
+(https://youtu.be/yYw9iGMiHXo)
 
-As well as in their raw forms at:
-https://drive.google.com/drive/folders/0B-S6GlZ4FikrTzRkV2wwTXBkbDA?usp=sharing
+As well as in their [raw video formats]
+(https://drive.google.com/drive/folders/0B-S6GlZ4FikrTzRkV2wwTXBkbDA?usp=sharing)
 
 ## How To Use
 

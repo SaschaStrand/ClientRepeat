@@ -1,3 +1,5 @@
+# Copyright (c) 2017 Sascha Strand
+
 from flask import Flask, render_template, g, request, flash, redirect, url_for
 import MySQLdb
 from werkzeug.security import generate_password_hash, check_password_hash
