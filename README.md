@@ -28,6 +28,16 @@ Note: ClientRepeat includes only the most minimal security features (effectively
 
 1.  Use the Reports tab to find a sorted list of clients by average total gratuity as well as the average rate of re-scheduling among all clients and a sorted list of clients by rate of re-scheduling.
 
+## How to build
+
+This project can be built in two main steps.
+
+The first is simply to clone the main branch of the distribution or download the sourcecode of the most recent release. 
+
+The second step is to build a MySQL database based on the schema.txt file and connected to the application in the app.py script under the heading "Configure Database". 
+
+From there, the program runs well locally. It is not yet deployed publicly as a web service.
+
 ## Status
 
 The front and back-end are complete. Under manual testing, the application works well with the exception of the limitations listed below.
