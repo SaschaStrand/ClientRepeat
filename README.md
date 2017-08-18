@@ -1,5 +1,6 @@
 # ClientRepeat
 Copyright &copy; 2017 Sascha Strand
+Available open source through the MIT License
 
 ClientRepeat is a web-based application allows an independent contractor to track his/her clients' re-scheduling and tipping patterns.
 
@@ -43,3 +44,9 @@ The front and back-end are complete. Under manual testing, the application works
 ## License
 
 This work is made available under the MIT license.
+
+## Contact Info
+
+This project is maintained by myself, Sascha Strand.
+I can be reached at sastrand at pdx dot edu.
+And please feel free to report any bugs through this github page. 

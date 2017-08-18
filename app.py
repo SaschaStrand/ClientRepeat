@@ -1,4 +1,5 @@
 # Copyright (c) 2017 Sascha Strand
+# Available open source through the MIT License
 
 from flask import Flask, render_template, g, request, flash, redirect, url_for
 import MySQLdb
